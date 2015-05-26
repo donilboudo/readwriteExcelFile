@@ -62,7 +62,25 @@ public class ReadWriteExcelFile {
 
 		HSSFWorkbook wb = new HSSFWorkbook();
 		HSSFSheet sheet = wb.createSheet(sheetName) ;
-
+		
+		//add style to first column of first row
+		XSSFCellStyle style = wb.createCellStyle();
+	        style.setFillForegroundColor(HSSFColor.RED.index);
+	        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+	
+	        XSSFFont font = wb.createFont();
+	        font.setColor(HSSFColor.BLACK.index);
+	        style.setFont(font);
+	
+		//create header
+	        XSSFCell h1 = header.createCell(0);
+	        h1.setCellStyle(style);
+	        h1.setCellValue("Header1");
+	        header.createCell(1).setCellValue("Header2");
+	        header.createCell(2).setCellValue("Header3");
+	        header.createCell(3).setCellValue("Header4");
+	        header.createCell(4).setCellValue("Header5");
+	        
 		//iterating r number of rows
 		for (int r=0;r < 5; r++ )
 		{
