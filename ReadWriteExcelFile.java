@@ -63,7 +63,7 @@ public class ReadWriteExcelFile {
 		HSSFWorkbook wb = new HSSFWorkbook();
 		HSSFSheet sheet = wb.createSheet(sheetName) ;
 		
-		//add style to first column of first row
+		//add style to first cell ([0,0])
 		XSSFCellStyle style = wb.createCellStyle();
 	        style.setFillForegroundColor(HSSFColor.RED.index);
 	        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
@@ -82,7 +82,7 @@ public class ReadWriteExcelFile {
 	        header.createCell(4).setCellValue("Header5");
 	        
 		//iterating r number of rows
-		for (int r=0;r < 5; r++ )
+		for (int r=1;r < 5; r++ )
 		{
 			HSSFRow row = sheet.createRow(r);
 	
